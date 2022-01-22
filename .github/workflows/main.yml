@@ -32,6 +32,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: trycodeinc/health:$(GITHUB_SHA)
+          tags: trycodeinc/health:${{ github.sha }}
       
       
