@@ -33,5 +33,19 @@ jobs:
         with:
           push: true
           tags: trycodeinc/health:latest
-      
+          
+    -   name: AWS SSM Send-Command
+        uses: peterkimzz/aws-ssm-send-command@master
+        id: ssm
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          instance-ids: ${{ secrets.INSTANCE_ID }}
+
+          command: |
+            wget https://raw.githubusercontent.com/sonukumar-a11/finalbackend/master/docker-compose.yml -O docker-compose.yml 
+            wget https://raw.githubusercontent.com/sonukumar-a11/finalbackend/master/wait-for-it.sh -O wait-for-it.sh
+            wget https://raw.githubusercontent.com/sonukumar-a11/finalbackend/master/docker-entrypoint.sh -O docker-entrypoint.sh
+            sudo docker-compose up --build
       
