@@ -120,11 +120,8 @@ WSGI_APPLICATION = 'healthcaresystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'health',
-        'HOST': 'db',
-        'USER': 'postgres',
-        'PASSWORD': 12345
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
