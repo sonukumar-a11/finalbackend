@@ -3,12 +3,13 @@ version: '3.3'
 services:
 
   web:
-    image: trycodeinc/health:v1.3
+    image: trycodeinc/health:latest
     restart: always
     container_name: code
     command: ./wait-for-it.sh db:5432 -- ./docker-entrypoint.sh
     # python manage.py runserver 0.0.0.0:8000
-    # build: .
+    volumes:
+      - .:/app
     ports:
       - 8000:8000
     # env_file:
