@@ -23,7 +23,7 @@ jobs:
     - name: Build the Docker image
       run: | 
         ls
-        docker build . --file Dockerfile --tag trycodeinc/health:$(GITHUB_SHA)
+        docker build . -t trycodeinc/health:$(GITHUB_SHA)
         docker push trycodeinc/health:$(GITHUB_SHA)
       
       
