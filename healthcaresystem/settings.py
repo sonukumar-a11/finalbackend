@@ -122,7 +122,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'health',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'USER': 'postgres',
         'PASSWORD': 12345
     }
